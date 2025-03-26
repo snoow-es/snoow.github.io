@@ -29,6 +29,19 @@ p {
   color: #6b7280;
 }
 
+.menu-idioma {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+#selector-idioma {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
 .logo {
   margin-bottom: 1.5rem;
   width: 100px;
