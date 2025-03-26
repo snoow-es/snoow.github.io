@@ -3,15 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snoow - Under Construction</title>
-  <!-- Cargar Font Awesome desde CDN público -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-papNM3D+4cFybN6jHzxC8D0P2cFHRMkStZTuU7Xfsvrxuk+VrU9+h5zcrUtjWnEKSF6XOK85t+PbQaqkR7FqaQ=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <title>Snoow</title>
   <style>
     body {
       margin: 0;
@@ -25,6 +17,7 @@
       justify-content: center;
       height: 100vh;
       text-align: center;
+      position: relative;
     }
 
     h1 {
@@ -35,19 +28,12 @@
     p {
       font-size: 1.2rem;
       color: #6b7280;
-      margin-bottom: 2rem;
     }
 
-    .social-links a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #374151;
-      font-size: 2rem;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #2563eb;
+    .logo {
+      margin-bottom: 1.5rem;
+      width: 100px;
+      height: auto;
     }
 
     .footer {
@@ -56,26 +42,92 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
+
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .social-links a {
+      margin: 5px 0;
+      text-decoration: none;
+      color: #2563eb;
+    }
+
+    .contact {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    .social-title {
+      font-weight: bold;
+      margin-top: 20px;
+      font-size: 1.1rem;
+      color: #111827;
+    }
+
+    .privacy-links {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      font-size: 0.9rem;
+    }
+
+    .privacy-links a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .auth-links {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 0.9rem;
+    }
+
+    .auth-links a {
+      color: #2563eb;
+      text-decoration: none;
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to the Snoow Family</h1>
-  <p>This page is under construction.<br />Stay tuned for something cool.</p>
+  <!-- Optional logo -->
+  <!-- <img src="logo.png" alt="Snoow Logo" class="logo"> -->
 
+  <div class="auth-links">
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+  </div>
+
+  <h1>Welcome to the Snoow Family!</h1>
+  <h2>Comming soon...</h2>
+  <p>This page is under construction<br />Stay tuned for something cool</p>
+
+  <div class="social-title">Social Media</div>
   <div class="social-links">
-    <a href="https://www.instagram.com/snoow.es/" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://twitter.com/snoow_es/" target="_blank" aria-label="X (Twitter)">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.tiktok.com/@snoow.es/" target="_blank" aria-label="TikTok">
-      <i class="fab fa-tiktok"></i>
-    </a>
+    <a href="https://x.com/snoow_es/" target="_blank">X (formerly Twitter)</a>
+    <a href="https://www.instagram.com/snoow.es/" target="_blank">Instagram</a>
+    <a href="https://www.tiktok.com/@snoow.es" target="_blank">TikTok</a>
+    <a href="https://www.youtube.com/@snoow_es" target="_blank">YouTube</a>
+  </div>
+
+  <div class="contact">
+    For inquiries, email us at: <a href="mailto:hello@snoow.es">hello@snoow.es</a>
   </div>
 
   <div class="footer">
     &copy; 2025 Snoow. All rights reserved.
+  </div>
+
+  <div class="privacy-links">
+    <a href="privacy.html" target="_blank">Privacy Policy</a>
+    <a href="terms.html" target="_blank">Terms & Conditions</a>
   </div>
 </body>
 </html>
