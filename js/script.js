@@ -1,32 +1,33 @@
-// Al cargar la página, establece el idioma actual según la URL
-window.addEventListener('DOMContentLoaded', () => {
-  const selector = document.getElementById('selector-idioma');
-  if(window.location.pathname.startsWith('/es/')) {
-    selector.value = 'es';
-  } else {
-    selector.value = 'en';
-  }
-});
-
-// Al cambiar el idioma, redirige al usuario
-document.getElementById('privacy-link').addEventListener('click', function(event) {
-    event.preventDefault();
-    window.location.href = 'privacy.html';
-});
-
-document.getElementById('selector-idioma').addEventListener('change', function() {
-  const idioma = this.value;
+document.addEventListener('DOMContentLoaded', () => {
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
   const pathActual = window.location.pathname;
 
-  if(idioma === 'es') {
-    // Cambiar a español
-    if(!pathActual.startsWith('/es/')){
-      window.location.href = '/es' + (pathActual === '/' ? '/index.html' : pathActual);
-    }
+  // Actualiza el botón activo según la URL
+  if (pathActual.startsWith('/es/')) {
+    btnEs.classList.add('active-lang');
   } else {
-    // Cambiar a inglés
+    btnEn.classList.add('active-lang');
+  }
+
+  btnEn.addEventListener('click', () => {
     if(pathActual.startsWith('/es/')){
       window.location.href = pathActual.replace('/es', '') || '/';
     }
+  });
+
+  btnEs.addEventListener('click', () => {
+    if(!pathActual.startsWith('/es/')){
+      window.location.href = '/es' + (pathActual === '/' ? '/index.html' : pathActual);
+    }
+  });
+
+  // Evento opcional para privacy-link
+  const privacyLink = document.getElementById('privacy-link');
+  if (privacyLink) {
+    privacyLink.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.location.href = 'privacy.html';
+    });
   }
 });
