@@ -1,28 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
   const btnEn = document.getElementById('btn-en');
   const btnEs = document.getElementById('btn-es');
-  const pathActual = window.location.pathname;
 
-  // Actualiza el botón activo según la URL
-  if (pathActual.startsWith('/es/')) {
-    btnEs.classList.add('active-lang');
-  } else {
-    btnEn.classList.add('active-lang');
-  }
+  // Función segura para obtener ruta
+  const getLangFromPath = () => window.location.pathname.startsWith('/es/') ? 'es' : 'en';
+
+  const setActiveButton = () => {
+    if(getLangFromPath() === 'es'){
+      btnEs.classList.add('active-lang');
+      btnEn.classList.remove('active-lang');
+    } else {
+      btnEn.classList.add('active-lang');
+      btnEs.classList.remove('active-lang');
+    }
+  };
+
+  setActiveButton();
 
   btnEn.addEventListener('click', () => {
-    if(pathActual.startsWith('/es/')){
-      window.location.href = pathActual.replace('/es', '') || '/';
+    if(getLangFromPath() === 'es') {
+      let newPath = window.location.pathname.replace('/es', '') || '/';
+      window.location.href = newPath;
     }
   });
 
   btnEs.addEventListener('click', () => {
-    if(!pathActual.startsWith('/es/')){
-      window.location.href = '/es' + (pathActual === '/' ? '/index.html' : pathActual);
+    if(getLangFromPath() === 'en') {
+      let pathActual = window.location.pathname === '/' ? '/index.html' : window.location.pathname;
+      window.location.href = '/es' + pathActual;
     }
   });
 
-  // Evento opcional para privacy-link
+  // Evento opcional privacy-link seguro
   const privacyLink = document.getElementById('privacy-link');
   if (privacyLink) {
     privacyLink.addEventListener('click', (event) => {
