@@ -9,6 +9,11 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // Al cambiar el idioma, redirige al usuario
+document.getElementById('privacy-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    window.location.href = 'privacy.html';
+});
+
 document.getElementById('selector-idioma').addEventListener('change', function() {
   const idioma = this.value;
   const pathActual = window.location.pathname;
