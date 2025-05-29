@@ -1,42 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const btnEn = document.getElementById('btn-en');
-  const btnEs = document.getElementById('btn-es');
-
-  // Función segura para obtener ruta
-  const getLangFromPath = () => window.location.pathname.startsWith('/es/') ? 'es' : 'en';
-
-  const setActiveButton = () => {
-    if(getLangFromPath() === 'es'){
-      btnEs.classList.add('active-lang');
-      btnEn.classList.remove('active-lang');
-    } else {
-      btnEn.classList.add('active-lang');
-      btnEs.classList.remove('active-lang');
-    }
+document.addEventListener("DOMContentLoaded", () => {
+  const langBtns = {
+    en: document.getElementById("btn-en"),
+    es: document.getElementById("btn-es")
   };
+  const translatables = document.querySelectorAll("[data-en]");
+  const savedLang = localStorage.getItem("lang") || "en";
 
-  setActiveButton();
+  applyLang(savedLang);
 
-  btnEn.addEventListener('click', () => {
-    if(getLangFromPath() === 'es') {
-      let newPath = window.location.pathname.replace('/es', '') || '/';
-      window.location.href = newPath;
-    }
-  });
+  if (langBtns.en && langBtns.es) {
+    langBtns.en.addEventListener("click", () => setLang("en"));
+    langBtns.es.addEventListener("click", () => setLang("es"));
+  }
 
-  btnEs.addEventListener('click', () => {
-    if(getLangFromPath() === 'en') {
-      let pathActual = window.location.pathname === '/' ? '/index.html' : window.location.pathname;
-      window.location.href = '/es' + pathActual;
-    }
-  });
+  function setLang(lang) {
+    localStorage.setItem("lang", lang);
+    applyLang(lang);
+  }
 
-  // Evento opcional privacy-link seguro
-  const privacyLink = document.getElementById('privacy-link');
-  if (privacyLink) {
-    privacyLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.location.href = 'privacy.html';
+  function applyLang(lang) {
+    translatables.forEach(el => {
+      const txt = el.dataset[lang];
+      if (txt) el.innerHTML = txt;
     });
+
+    if (langBtns.en && langBtns.es) {
+      langBtns.en.classList.toggle("active", lang === "en");
+      langBtns.es.classList.toggle("active", lang === "es");
+    }
   }
 });
