@@ -1,7 +1,7 @@
 /* Estilo de la página de selección de sets */
 body { margin: 0; font-family: 'Poppins', sans-serif; background: #000; color: #ffffff; }
 .page-title { text-align: center; margin-top: 2rem; font-size: 2rem; font-weight: 700; color: #ffffff; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; padding: 2rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 2rem; }
 
 /* Estilo de las tarjetas */
 .set-card { position: relative; text-decoration: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.2s, box-shadow 0.2s; }
@@ -45,4 +45,9 @@ body { margin: 0; font-family: 'Poppins', sans-serif; background: #000; color: #
     .car-page > *:nth-child(9) { animation-delay: 1.6s; }
     .car-page > *:nth-child(10) { animation-delay: 1.8s; }
 
-
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
